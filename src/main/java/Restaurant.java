@@ -40,7 +40,18 @@ public class Restaurant {
         return this.name == rest.name &&
                 this.location== rest.location && compare(this.menu, rest.menu) && this.openingTime.equals(rest.openingTime) && this.closingTime.equals(rest.closingTime);
     }
-
+    public int calculateOrder(List<String> itemNames) {
+    	int sum = 0;
+    	for(String name: itemNames) {
+    		for(Item item : menu) {
+        		if(item.getName()==name) {
+        			sum = sum + item.getPrice();
+        		}
+        	}
+    	}
+    	
+    	return sum;
+    }
     
     public boolean isRestaurantOpen() {
     	LocalTime time = getCurrentTime();
