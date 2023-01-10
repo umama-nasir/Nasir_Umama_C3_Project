@@ -55,6 +55,16 @@ class RestaurantTest {
     	
 
     }
+    
+    @Test
+    public void order_total_after_adding_items_should_match_sum_of_item_prices() {
+    	List<String> itemName = new ArrayList<String>();
+    	itemName.add("Sweet corn soup");
+    	itemName.add("Vegetable lasagne");
+    	int orderValue = restaurant.calculateOrder(itemName);
+    	int expectedOrderValue = 119+269;
+    	assertEquals(orderValue, expectedOrderValue);
+    }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
